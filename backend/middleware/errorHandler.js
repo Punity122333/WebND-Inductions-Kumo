@@ -1,21 +1,21 @@
 export default function errorHandler(err, req, res, next) {
   const code = err.statusCode || err.status || 500;
-  let erorMsg = err.message || "Something went wrong";
+  let msg = err.message || "Something went wrong";
   if (code === 404) {
-    erorMsg = err.message || "Anime not found";
+    msg = err.message || "Anime not found";
   }
   if (code === 429) {
-    erorMsg = "Too many requests, try again in a moment";
+    msg = "Too many requests, try again in a moment";
   }
   if (code === 502) {
-    erorMsg = "Upstream service failed, try again later";
+    msg = "Upstream service failed, try again later";
   }
   if (code === 504) {
-    erorMsg = "Upstream request timed out, try again";
+    msg = "Upstream request timed out, try again";
   }
   const body = {
     error: true,
-    message: erorMsg,
+    message: msg,
     status: code
   };
   res.status(code).json(body);

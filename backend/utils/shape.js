@@ -153,8 +153,8 @@ export function shapeRecommendations(list) {
       image: jpg.image_url || null
     });
   }
-  const filterd = out.filter(function (x) {
+  const filtered = out.filter(function (x) {
     return x.id;
   });
-  return filterd;
+  return filtered;
 }
