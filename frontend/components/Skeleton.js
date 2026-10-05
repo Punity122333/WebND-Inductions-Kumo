@@ -17,10 +17,13 @@ export function SkeletonGrid({ count }) {
     arr.push(i);
   }
   return (
-    <div className={styles.grid}>
-      {arr.map(function (k) {
-        return <SkeletonCard key={k} />;
-      })}
+    <div>
+      <div aria-hidden="true" className="sfx">ゴゴゴ</div>
+      <div className={styles.grid}>
+        {arr.map(function (k) {
+          return <SkeletonCard key={k} />;
+        })}
+      </div>
     </div>
   );
 }

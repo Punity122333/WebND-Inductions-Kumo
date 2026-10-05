@@ -1,28 +1,42 @@
 .box {
   background: #181a30;
-  border: 1px solid rgba(255, 143, 177, 0.3);
-  border-radius: 18px;
-  padding: 28px 20px;
+  border: 3px solid #ff8fb1;
+  border-radius: 16px 6px 18px 8px;
+  box-shadow: 6px 6px 0 #0f1020, 7px 7px 0 #ffd84d;
+  padding: 30px 20px;
   text-align: center;
-  margin: 20px 0;
+  margin: 22px 0;
+  transform: rotate(-0.6deg);
 }
 
-.title {
-  font-weight: 800;
-  font-size: 1.1rem;
-  margin: 0 0 6px;
+.sticker {
+  display: inline-block;
+  font-family: var(--font-dela), "Zen Maru Gothic", sans-serif;
+  font-size: 1.6rem;
+  letter-spacing: 1px;
+  background: #ffd84d;
+  color: #0f1020;
+  border: 3px solid #0f1020;
+  border-radius: 8px 14px 6px 12px;
+  padding: 4px 18px 6px;
+  margin: 0 0 12px;
+  transform: rotate(2.5deg);
 }
 
 .msg {
-  color: #9a98b5;
-  margin: 0 0 16px;
+  color: #eceaf5;
+  margin: 0 0 18px;
+  font-weight: 700;
 }
 
 .btn {
   background: #ff8fb1;
   color: #0f1020;
-  border: none;
-  border-radius: 12px;
-  padding: 10px 22px;
+  border: 3px solid #0f1020;
+  box-shadow: 4px 4px 0 #ffd84d;
+  border-radius: 10px 5px 12px 6px;
+  padding: 12px 26px;
+  min-height: 46px;
   font-weight: 800;
+  font-size: 1rem;
 }

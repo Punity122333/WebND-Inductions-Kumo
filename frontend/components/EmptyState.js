@@ -3,7 +3,11 @@ import styles from "./EmptyState.module.css";
 export default function EmptyState({ onClear }) {
   return (
     <div className={styles.box}>
-      <div className={styles.face}>{"( . .)"}</div>
+      <div className={styles.face} aria-hidden="true">
+        <span className={styles.eye} />
+        <span className={styles.eye} />
+        <span className={styles.mouth} />
+      </div>
       <h3>No anime found</h3>
       <p>Try a different search or loosen your filters a little.</p>
       {onClear ? (

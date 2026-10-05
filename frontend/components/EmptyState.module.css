@@ -1,31 +1,74 @@
 .box {
   background: #181a30;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 20px;
-  padding: 40px 20px;
+  border: 3px solid #eceaf5;
+  border-radius: 8px 18px 6px 16px;
+  box-shadow: 6px 6px 0 #ff8fb1;
+  padding: 36px 20px;
   text-align: center;
-  margin: 20px 0;
+  margin: 22px 0;
+  transform: rotate(0.5deg);
 }
 
 .face {
-  font-size: 2rem;
-  color: #a99cff;
+  position: relative;
+  width: 92px;
+  height: 92px;
+  margin: 0 auto 8px;
+  border: 3px solid #eceaf5;
+  border-radius: 46px 40px 48px 42px;
+  background: #0f1020;
+  transform: rotate(-4deg);
+}
+
+.eye {
+  position: absolute;
+  top: 26px;
+  width: 11px;
+  height: 14px;
+  background: #ffd84d;
+  border-radius: 6px 6px 6px 6px;
+}
+
+.eye:first-child {
+  left: 22px;
+}
+
+.eye:nth-child(2) {
+  right: 22px;
+}
+
+.mouth {
+  position: absolute;
+  left: 50%;
+  bottom: 18px;
+  width: 34px;
+  height: 16px;
+  border: 3px solid #ff8fb1;
+  border-top: none;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  border-radius: 0 0 30px 30px;
+  transform: translateX(-50%) rotate(180deg);
 }
 
 .box h3 {
-  margin: 10px 0 6px;
+  font-family: var(--font-dela), "Zen Maru Gothic", sans-serif;
+  margin: 12px 0 6px;
+  letter-spacing: 0.5px;
 }
 
 .box p {
-  color: #9a98b5;
-  margin: 0 0 16px;
+  color: rgba(236, 234, 245, 0.75);
+  margin: 0 0 18px;
 }
 
 .btn {
-  background: rgba(255, 143, 177, 0.18);
-  border: 1px solid #ff8fb1;
-  color: #eceaf5;
-  border-radius: 12px;
-  padding: 10px 20px;
+  background: #ffd84d;
+  border: 3px solid #0f1020;
+  box-shadow: 4px 4px 0 #ff8fb1;
+  color: #0f1020;
+  border-radius: 12px 5px 10px 6px;
+  padding: 12px 24px;
+  min-height: 46px;
   font-weight: 800;
 }
