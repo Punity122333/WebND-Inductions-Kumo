@@ -11,6 +11,9 @@ const app = express();
 const prot = process.env.PORT || 5000;
 const origin = process.env.FRONTEND_ORIGIN || "http://localhost:3000";
 
+app.use(cors({ origin }));
+
+
 app.use(cors({ origin: origin }));
 app.use(express.json());
 
@@ -27,6 +30,6 @@ app.use(function (req, res) {
 
 app.use(errorHandler);
 
-app.listen(prot, function () {
+app.listen(prot, "0.0.0.0" , function () {
   console.log("Kumo backend running on " + prot);
 });
