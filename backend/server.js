@@ -8,36 +8,32 @@ import errorHandler from "./middleware/errorHandler.js";
 dotenv.config();
 
 const app = express();
-const prot = process.env.PORT || 5000;
+const port = process.env.PORT || 5000;
 
-const allowedOrigins = ["http://localhost:3000",
+const allowedOrigins = [
+  "http://localhost:3000",
   "https://web-nd-inductions-kumo.vercel.app",
 ];
 
 app.use(cors({
   origin: function (requestOrigin, callback) {
-    if (!requestOrigin || allowedOrigins.includes(requestOrigin) || requestOrigin.endsWith(".vercel.app")) {
+    if (
+      !requestOrigin ||
+      allowedOrigins.includes(requestOrigin) ||
+      requestOrigin.endsWith(".vercel.app")
+    ) {
       callback(null, true);
-    }
-
-    else {
+    } else {
       callback(new Error("Not allowed by CORS"));
     }
-  }
-
-  ,
+  },
 }));
 
-
-
-app.use(cors({
-  origin: origin
-}));
 app.use(express.json());
 
 app.get("/health", function (req, res) {
   res.json({
-    ok: true
+    ok: true,
   });
 });
 
@@ -46,12 +42,15 @@ app.use("/api/favorites", favRoutes);
 
 app.use(function (req, res) {
   res.status(404).json({
-    error: true, message: "Route not found", status: 404
+    error: true,
+    message: "Route not found",
+    status: 404,
   });
 });
 
 app.use(errorHandler);
 
-app.listen(prot, "0.0.0.0", function () {
-  console.log("Kumo backend running on " + prot);
+app.listen(port, "0.0.0.0", function () {
+  console.log("Kumo backend running on " + port);
 });
+
