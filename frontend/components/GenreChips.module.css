@@ -1,0 +1,29 @@
+.row {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding: 6px 2px 12px;
+  scrollbar-width: thin;
+}
+
+.chip {
+  flex-shrink: 0;
+  border-radius: 999px;
+  padding: 8px 16px;
+  background: #181a30;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #9a98b5;
+  font-weight: 800;
+  transition: all 0.2s ease;
+}
+
+.chip:hover {
+  color: #eceaf5;
+  border-color: rgba(255, 143, 177, 0.5);
+}
+
+.on {
+  background: rgba(255, 143, 177, 0.2);
+  border-color: #ff8fb1;
+  color: #eceaf5;
+}

@@ -1,0 +1,107 @@
+.panel {
+  background: #181a30;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 16px;
+}
+
+.fields {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.9rem;
+  color: #9a98b5;
+  font-weight: 700;
+}
+
+.field select,
+.field input[type="range"] {
+  accent-color: #ff8fb1;
+}
+
+.field select {
+  background: #0f1020;
+  color: #eceaf5;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  padding: 10px;
+  font-size: 0.95rem;
+}
+
+.row {
+  display: flex;
+  gap: 10px;
+}
+
+.toggle,
+.reset,
+.mobileBtn {
+  border-radius: 12px;
+  padding: 10px 14px;
+  font-weight: 800;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.toggle {
+  background: rgba(169, 156, 255, 0.18);
+  color: #eceaf5;
+  flex: 1;
+}
+
+.reset {
+  background: transparent;
+  color: #9a98b5;
+  flex: 1;
+}
+
+.mobileBtn {
+  display: none;
+  width: 100%;
+  background: rgba(255, 143, 177, 0.15);
+  color: #eceaf5;
+  border: 1px solid rgba(255, 143, 177, 0.3);
+  margin-bottom: 12px;
+}
+
+.hide {
+  display: block;
+}
+
+.show {
+  display: block;
+}
+
+.desktop {
+  display: block;
+}
+
+@media (max-width: 860px) {
+  .mobileBtn {
+    display: block;
+  }
+  .desktop {
+    display: none;
+  }
+  .hide {
+    display: none;
+  }
+}
+
+@media (min-width: 861px) {
+  .mobileBtn {
+    display: none;
+  }
+  .hide,
+  .show {
+    display: none;
+  }
+  .desktop {
+    display: block;
+  }
+}

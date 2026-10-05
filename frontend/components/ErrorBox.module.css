@@ -1,0 +1,28 @@
+.box {
+  background: #181a30;
+  border: 1px solid rgba(255, 143, 177, 0.3);
+  border-radius: 18px;
+  padding: 28px 20px;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.title {
+  font-weight: 800;
+  font-size: 1.1rem;
+  margin: 0 0 6px;
+}
+
+.msg {
+  color: #9a98b5;
+  margin: 0 0 16px;
+}
+
+.btn {
+  background: #ff8fb1;
+  color: #0f1020;
+  border: none;
+  border-radius: 12px;
+  padding: 10px 22px;
+  font-weight: 800;
+}

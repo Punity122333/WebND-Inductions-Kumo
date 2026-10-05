@@ -1,0 +1,42 @@
+.wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: #181a30;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 18px;
+  padding: 0 14px;
+  height: 52px;
+}
+
+.icon {
+  color: #9a98b5;
+  flex-shrink: 0;
+}
+
+.input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #eceaf5;
+  font-size: 1rem;
+  padding: 0 10px;
+  height: 100%;
+}
+
+.input::placeholder {
+  color: #9a98b5;
+}
+
+.clear {
+  background: rgba(255, 255, 255, 0.08);
+  border: none;
+  border-radius: 999px;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #eceaf5;
+}

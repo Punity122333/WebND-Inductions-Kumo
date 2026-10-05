@@ -1,0 +1,31 @@
+.box {
+  background: #181a30;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 40px 20px;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.face {
+  font-size: 2rem;
+  color: #a99cff;
+}
+
+.box h3 {
+  margin: 10px 0 6px;
+}
+
+.box p {
+  color: #9a98b5;
+  margin: 0 0 16px;
+}
+
+.btn {
+  background: rgba(255, 143, 177, 0.18);
+  border: 1px solid #ff8fb1;
+  color: #eceaf5;
+  border-radius: 12px;
+  padding: 10px 20px;
+  font-weight: 800;
+}
