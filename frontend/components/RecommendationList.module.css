@@ -35,15 +35,15 @@
 }
 
 .row .card:nth-child(odd) {
-  transform: rotate(1.1deg);
+  border-radius: 6px 14px 5px 12px;
 }
 
 .row .card:nth-child(even) {
-  transform: rotate(-1.1deg);
+  border-radius: 14px 6px 12px 5px;
 }
 
 .card:hover {
-  transform: rotate(0deg) translateY(-4px);
+  transform: translateY(-4px);
   border-color: #ffd84d;
 }
 

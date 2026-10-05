@@ -40,11 +40,11 @@
 }
 
 .num:nth-child(odd) {
-  transform: rotate(-2deg);
+  border-radius: 6px 4px 10px 5px;
 }
 
 .num:nth-child(even) {
-  transform: rotate(2deg);
+  border-radius: 10px 6px 6px 10px;
 }
 
 .on {

@@ -34,11 +34,11 @@
 }
 
 .row .card:nth-child(odd) {
-  transform: rotate(-1.2deg);
+  border-radius: 12px 5px 14px 6px;
 }
 
 .row .card:nth-child(even) {
-  transform: rotate(1.2deg);
+  border-radius: 5px 12px 6px 14px;
 }
 
 .img {

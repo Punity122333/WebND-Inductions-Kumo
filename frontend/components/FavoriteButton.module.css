@@ -13,7 +13,6 @@
 
 .btn:hover {
   background: #ff8fb1;
-  transform: rotate(-6deg);
 }
 
 .fav {

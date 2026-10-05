@@ -19,16 +19,14 @@
 }
 
 .row .chip:nth-child(odd) {
-  transform: rotate(-1.4deg);
+  border-color: #eceaf5;
 }
 
 .row .chip:nth-child(even) {
-  transform: rotate(1.1deg);
   border-color: #ff8fb1;
 }
 
 .chip:hover {
-  transform: rotate(0deg);
   border-color: #ffd84d;
 }
 

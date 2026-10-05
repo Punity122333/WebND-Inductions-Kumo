@@ -9,7 +9,6 @@
   box-shadow: 7px 7px 0 #ff8fb1;
   padding: 26px;
   overflow: hidden;
-  transform: rotate(-0.4deg);
 }
 
 .glow {
@@ -22,7 +21,6 @@
 .poster {
   position: relative;
   z-index: 1;
-  transform: rotate(-2.2deg);
   border: 3px solid #eceaf5;
   border-radius: 12px 5px 14px 6px;
   box-shadow: 6px 6px 0 #ffd84d;
@@ -80,14 +78,12 @@
   background: #ff8fb1;
   color: #0f1020;
   border-radius: 9px 4px 11px 5px;
-  transform: rotate(-1.5deg);
 }
 
 .tag2 {
   background: #ffd84d;
   color: #0f1020;
   border-radius: 4px 11px 5px 9px;
-  transform: rotate(1.4deg);
 }
 
 .stats {
@@ -108,12 +104,10 @@
 
 .stat:nth-child(odd) {
   border-radius: 10px 4px 12px 5px;
-  transform: rotate(-0.8deg);
 }
 
 .stat:nth-child(even) {
   border-radius: 4px 12px 5px 10px;
-  transform: rotate(0.8deg);
   border-color: #ffd84d;
 }
 

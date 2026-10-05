@@ -16,7 +16,11 @@
   box-shadow: 5px 5px 0 #0f1020, 6px 6px 0 #ff8fb1;
   padding: 0 12px;
   height: 52px;
-  transform: rotate(-0.4deg);
+}
+
+.wrap:focus-within {
+  border-color: #ffd84d;
+  box-shadow: 5px 5px 0 #0f1020, 6px 6px 0 #ffd84d;
 }
 
 .icon {
@@ -35,6 +39,10 @@
   font-weight: 700;
   padding: 0 10px;
   height: 100%;
+}
+
+.input:focus {
+  outline: none;
 }
 
 .input::placeholder {
