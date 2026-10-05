@@ -32,6 +32,12 @@ export default function Navbar() {
           </Link>
         </nav>
       </div>
+      <div aria-hidden="true" className={styles.ticker}>
+        <div className={styles.track}>
+          <span>SEARCH ANIME / BOOKMARK STUFF / WATCH LATER / SEARCH ANIME / BOOKMARK STUFF / WATCH LATER /&nbsp;</span>
+          <span>SEARCH ANIME / BOOKMARK STUFF / WATCH LATER / SEARCH ANIME / BOOKMARK STUFF / WATCH LATER /&nbsp;</span>
+        </div>
+      </div>
     </header>
   );
 }

@@ -5,19 +5,31 @@
 .footer {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 28px 20px 40px;
+  padding: 26px 20px 42px;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   color: #eceaf5;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 3px solid #eceaf5;
   font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.footer > span:first-child {
+  font-family: var(--font-dela), "Zen Maru Gothic", sans-serif;
+  background: #ff8fb1;
+  color: #0f1020;
+  border: 3px solid #0f1020;
+  box-shadow: 3px 3px 0 #ffd84d;
+  border-radius: 8px 4px 10px 5px;
+  padding: 2px 12px 4px;
+  transform: rotate(-2deg);
 }
 
 .dot {
-  color: #9a98b5;
+  color: #ffd84d;
 }
 
 .muted {
-  color: #9a98b5;
+  color: rgba(236, 234, 245, 0.62);
 }

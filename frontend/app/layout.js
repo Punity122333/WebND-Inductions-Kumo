@@ -1,4 +1,4 @@
-import { Zen_Maru_Gothic, Nunito } from "next/font/google";
+import { Zen_Maru_Gothic, Nunito, Dela_Gothic_One } from "next/font/google";
 import "./globals.css";
 import Navbar from "../components/Navbar";
 import { FavoritesProvider } from "../context/FavoritesContext";
@@ -6,6 +6,7 @@ import styles from "./layout.module.css";
 
 const zen = Zen_Maru_Gothic({ subsets: ["latin"], weight: ["500", "700"], variable: "--font-zen" });
 const nunito = Nunito({ subsets: ["latin"], variable: "--font-nunito" });
+const dela = Dela_Gothic_One({ subsets: ["latin"], weight: ["400"], variable: "--font-dela" });
 
 export const metadata = {
   title: "Kumo",
@@ -14,7 +15,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={zen.variable + " " + nunito.variable}>
+    <html lang="en" className={zen.variable + " " + nunito.variable + " " + dela.variable}>
       <body>
         <FavoritesProvider>
           <Navbar />
