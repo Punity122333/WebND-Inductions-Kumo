@@ -3,7 +3,7 @@
   height: 42px;
   border-radius: 12px 6px 13px 7px;
   border: 3px solid #0f1020;
-  background: #eceaf5;
+  background: #8f89ab;
   color: #0f1020;
   display: inline-flex;
   align-items: center;
@@ -12,11 +12,11 @@
 }
 
 .btn:hover {
-  background: #c4899e;
+  background: #96687d;
 }
 
 .fav {
-  background: #c4899e;
+  background: #96687d;
   border-color: #0f1020;
   color: #0f1020;
   animation: pop 0.22s steps(3) both;

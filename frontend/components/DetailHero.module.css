@@ -4,9 +4,9 @@
   grid-template-columns: 240px 1fr;
   gap: 26px;
   background: #181a30;
-  border: 3px solid #eceaf5;
+  border: 3px solid #4c4f75;
   border-radius: 8px 20px 10px 18px;
-  box-shadow: 7px 7px 0 #c4899e;
+  box-shadow: 7px 7px 0 #96687d;
   padding: 26px;
   overflow: hidden;
 }
@@ -14,16 +14,16 @@
 .glow {
   position: absolute;
   inset: 0;
-  background: repeating-conic-gradient(from 0deg at 82% 12%, rgba(201, 162, 75, 0.09) 0deg 2deg, transparent 2deg 7deg);
+  background: repeating-conic-gradient(from 0deg at 82% 12%, rgba(147, 128, 76, 0.09) 0deg 2deg, transparent 2deg 7deg);
   pointer-events: none;
 }
 
 .poster {
   position: relative;
   z-index: 1;
-  border: 3px solid #eceaf5;
+  border: 3px solid #4c4f75;
   border-radius: 12px 5px 14px 6px;
-  box-shadow: 6px 6px 0 #c9a24b;
+  box-shadow: 6px 6px 0 #937f4c;
   overflow: hidden;
   align-self: start;
 }
@@ -44,7 +44,7 @@
   font-family: var(--font-dela), "Zen Maru Gothic", sans-serif;
   font-size: 2rem;
   line-height: 1.2;
-  text-shadow: 3px 3px 0 #c4899e;
+  text-shadow: 3px 3px 0 #96687d;
 }
 
 .sub {
@@ -75,13 +75,13 @@
 }
 
 .tag {
-  background: #c4899e;
+  background: #96687d;
   color: #0f1020;
   border-radius: 9px 4px 11px 5px;
 }
 
 .tag2 {
-  background: #c9a24b;
+  background: #937f4c;
   color: #0f1020;
   border-radius: 4px 11px 5px 9px;
 }
@@ -95,7 +95,7 @@
 
 .stat {
   background: #0f1020;
-  border: 3px solid #eceaf5;
+  border: 3px solid #4c4f75;
   padding: 10px;
   display: flex;
   flex-direction: column;
@@ -108,7 +108,7 @@
 
 .stat:nth-child(even) {
   border-radius: 4px 12px 5px 10px;
-  border-color: #c9a24b;
+  border-color: #937f4c;
 }
 
 .k {

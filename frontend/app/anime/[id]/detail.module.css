@@ -4,22 +4,22 @@
   padding: 10px 16px;
   min-height: 44px;
   color: #0f1020;
-  background: #eceaf5;
+  background: #8f89ab;
   border: 3px solid #0f1020;
   border-radius: 8px 4px 10px 5px;
-  box-shadow: 4px 4px 0 #c4899e;
+  box-shadow: 4px 4px 0 #96687d;
   font-weight: 800;
 }
 
 .back:hover {
-  background: #c9a24b;
+  background: #937f4c;
 }
 
 .text {
   background: #181a30;
-  border: 3px solid #eceaf5;
+  border: 3px solid #4c4f75;
   border-radius: 14px 6px 16px 8px;
-  box-shadow: 6px 6px 0 #0f1020, 7px 7px 0 #c4899e;
+  box-shadow: 6px 6px 0 #0f1020, 7px 7px 0 #96687d;
   padding: 22px;
   margin-top: 22px;
 }
@@ -30,7 +30,7 @@
   font-size: 1.2rem;
   margin: 16px 0 4px;
   padding-bottom: 8px;
-  background-image: repeating-linear-gradient(135deg, #c9a24b 0 8px, transparent 8px 14px);
+  background-image: repeating-linear-gradient(135deg, #937f4c 0 8px, transparent 8px 14px);
   background-size: 100% 6px;
   background-position: 0 100%;
   background-repeat: no-repeat;

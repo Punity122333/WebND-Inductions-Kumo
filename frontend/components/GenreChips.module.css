@@ -12,28 +12,28 @@
   border-radius: 10px 4px 12px 5px;
   padding: 8px 18px;
   background: #181a30;
-  border: 3px solid #eceaf5;
-  color: #eceaf5;
+  border: 3px solid #4c4f75;
+  color: #c6c2d8;
   font-weight: 800;
   transition: transform 0.15s steps(3);
 }
 
 .row .chip:nth-child(odd) {
-  border-color: #eceaf5;
+  border-radius: 10px 4px 12px 5px;
 }
 
 .row .chip:nth-child(even) {
-  border-color: #c4899e;
+  border-color: #96687d;
 }
 
 .chip:hover {
-  border-color: #c9a24b;
+  border-color: #937f4c;
 }
 
 .on {
-  background: #c4899e;
+  background: #96687d;
   border: 3px solid #0f1020;
-  box-shadow: 3px 3px 0 #c9a24b;
+  box-shadow: 3px 3px 0 #937f4c;
   color: #0f1020;
   transform: rotate(0deg);
 }

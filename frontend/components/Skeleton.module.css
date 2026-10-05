@@ -7,7 +7,7 @@
 
 .card {
   background: #181a30;
-  border: 3px solid #eceaf5;
+  border: 3px solid #4c4f75;
   border-radius: 12px 6px 14px 5px;
   padding-bottom: 14px;
   overflow: hidden;
@@ -20,7 +20,7 @@
 .poster {
   aspect-ratio: 2 / 3;
   background: #2a2d55;
-  border-bottom: 3px solid #eceaf5;
+  border-bottom: 3px solid #4c4f75;
   animation: blink 1.1s steps(2) infinite;
 }
 
@@ -29,7 +29,7 @@
   height: 14px;
   margin: 12px 12px 0;
   background: #2a2d55;
-  border: 2px solid #eceaf5;
+  border: 2px solid #4c4f75;
   border-radius: 3px 7px 4px 6px;
   animation: blink 1.1s steps(2) infinite;
 }

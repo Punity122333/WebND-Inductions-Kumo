@@ -1,10 +1,10 @@
 .panel {
   position: relative;
-  background: #c9a24b;
+  background: #937f4c;
   color: #0f1020;
   border: 3px solid #0f1020;
   border-radius: 5px 16px 7px 14px;
-  box-shadow: 6px 6px 0 #c4899e;
+  box-shadow: 6px 6px 0 #96687d;
   padding: 22px 16px 16px;
   margin-top: 14px;
 }
@@ -44,7 +44,7 @@
 
 .field select {
   background: #0f1020;
-  color: #eceaf5;
+  color: #c6c2d8;
   border: 3px solid #0f1020;
   border-radius: 8px 4px 10px 5px;
   padding: 10px;
@@ -69,14 +69,14 @@
 }
 
 .toggle {
-  background: #c4899e;
+  background: #96687d;
   color: #0f1020;
   flex: 1;
   box-shadow: 3px 3px 0 #0f1020;
 }
 
 .reset {
-  background: #eceaf5;
+  background: #8f89ab;
   color: #0f1020;
   flex: 1;
   box-shadow: 3px 3px 0 #0f1020;
@@ -86,7 +86,7 @@
   display: none;
   width: 100%;
   background: #0f1020;
-  color: #c9a24b;
+  color: #937f4c;
   margin-bottom: 12px;
 }
 

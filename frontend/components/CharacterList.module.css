@@ -9,7 +9,7 @@
   margin: 0 0 14px -4px;
   padding-bottom: 8px;
   transform: rotate(-1deg);
-  background-image: repeating-linear-gradient(135deg, #c4899e 0 8px, transparent 8px 14px);
+  background-image: repeating-linear-gradient(135deg, #96687d 0 8px, transparent 8px 14px);
   background-size: 100% 6px;
   background-position: 0 100%;
   background-repeat: no-repeat;
@@ -26,9 +26,9 @@
   flex-shrink: 0;
   width: 132px;
   background: #181a30;
-  border: 3px solid #eceaf5;
+  border: 3px solid #4c4f75;
   border-radius: 12px 5px 14px 6px;
-  box-shadow: 4px 4px 0 #0f1020, 5px 5px 0 #c9a24b;
+  box-shadow: 4px 4px 0 #0f1020, 5px 5px 0 #937f4c;
   overflow: hidden;
   padding-bottom: 10px;
 }
@@ -45,7 +45,7 @@
   width: 100%;
   height: 150px;
   object-fit: cover;
-  border-bottom: 3px solid #eceaf5;
+  border-bottom: 3px solid #4c4f75;
 }
 
 .name {
@@ -62,7 +62,7 @@
   font-size: 0.74rem;
   font-weight: 800;
   color: #0f1020;
-  background: #c9a24b;
+  background: #937f4c;
   margin: 6px 10px 0;
   padding: 1px 8px;
   transform: rotate(-2deg);

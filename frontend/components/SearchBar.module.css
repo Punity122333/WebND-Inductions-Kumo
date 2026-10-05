@@ -11,20 +11,20 @@
   flex: 1;
   min-width: 0;
   background: #181a30;
-  border: 3px solid #eceaf5;
+  border: 3px solid #4c4f75;
   border-radius: 14px 5px 16px 6px;
-  box-shadow: 5px 5px 0 #0f1020, 6px 6px 0 #c4899e;
+  box-shadow: 5px 5px 0 #0f1020, 6px 6px 0 #96687d;
   padding: 0 12px;
   height: 52px;
 }
 
 .wrap:focus-within {
-  border-color: #c9a24b;
-  box-shadow: 5px 5px 0 #0f1020, 6px 6px 0 #c9a24b;
+  border-color: #937f4c;
+  box-shadow: 5px 5px 0 #0f1020, 6px 6px 0 #937f4c;
 }
 
 .icon {
-  color: #c9a24b;
+  color: #937f4c;
   flex-shrink: 0;
 }
 
@@ -34,7 +34,7 @@
   background: transparent;
   border: none;
   outline: none;
-  color: #eceaf5;
+  color: #c6c2d8;
   font-size: 1rem;
   font-weight: 700;
   padding: 0 10px;
@@ -50,7 +50,7 @@
 }
 
 .clear {
-  background: #c4899e;
+  background: #96687d;
   color: #0f1020;
   border: 3px solid #0f1020;
   border-radius: 8px 4px 9px 5px;
@@ -69,10 +69,10 @@
   font-family: var(--font-dela), "Zen Maru Gothic", sans-serif;
   font-size: 1.05rem;
   letter-spacing: 1px;
-  background: #c9a24b;
+  background: #937f4c;
   color: #0f1020;
   border: 3px solid #0f1020;
   border-radius: 6px 14px 5px 12px;
-  box-shadow: 5px 5px 0 #c4899e;
+  box-shadow: 5px 5px 0 #96687d;
   transform: rotate(1.2deg);
 }

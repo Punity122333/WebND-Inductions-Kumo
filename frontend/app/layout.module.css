@@ -9,24 +9,24 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  color: #eceaf5;
-  border-top: 3px solid #eceaf5;
+  color: #c6c2d8;
+  border-top: 3px solid #4c4f75;
   font-size: 0.9rem;
   font-weight: 700;
 }
 
 .footer > span:first-child {
   font-family: var(--font-dela), "Zen Maru Gothic", sans-serif;
-  background: #c4899e;
+  background: #96687d;
   color: #0f1020;
   border: 3px solid #0f1020;
-  box-shadow: 3px 3px 0 #c9a24b;
+  box-shadow: 3px 3px 0 #937f4c;
   border-radius: 8px 4px 10px 5px;
   padding: 2px 12px 4px;
 }
 
 .dot {
-  color: #c9a24b;
+  color: #937f4c;
 }
 
 .muted {

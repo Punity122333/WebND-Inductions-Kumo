@@ -1,11 +1,11 @@
 .hero {
   margin: 12px 0 20px;
   position: relative;
-  background-image: radial-gradient(rgba(236, 234, 245, 0.16) 1.6px, transparent 1.7px);
+  background-image: radial-gradient(rgba(198, 194, 216, 0.1) 1.6px, transparent 1.7px);
   background-size: 16px 16px;
-  border: 3px solid #eceaf5;
+  border: 3px solid #4c4f75;
   border-radius: 16px 7px 20px 9px;
-  box-shadow: 6px 6px 0 #c4899e;
+  box-shadow: 6px 6px 0 #96687d;
   padding: 22px 20px 26px;
 }
 
@@ -15,7 +15,7 @@
   line-height: 1.15;
   letter-spacing: 0.5px;
   color: #cfcae2;
-  text-shadow: 2px 2px 0 rgba(196, 137, 158, 0.55);
+  text-shadow: 2px 2px 0 rgba(150, 104, 125, 0.55);
 }
 
 .sub {
@@ -27,7 +27,7 @@
 .tear {
   height: 15px;
   margin-top: 18px;
-  background: #c9a24b;
+  background: #937f4c;
   border-top: 3px solid #0f1020;
   clip-path: polygon(0 30%, 4% 70%, 9% 25%, 15% 65%, 21% 30%, 28% 75%, 34% 35%, 41% 70%, 48% 28%, 55% 68%, 62% 32%, 69% 72%, 76% 30%, 83% 66%, 90% 28%, 95% 62%, 100% 35%, 100% 100%, 0 100%);
 }

@@ -1,6 +1,6 @@
 .card {
   background: #181a30;
-  border: 3px solid #eceaf5;
+  border: 3px solid #4c4f75;
   border-radius: 14px 5px 18px 7px;
   box-shadow: 5px 5px 0 #000;
   overflow: hidden;
@@ -12,8 +12,8 @@
 
 .card:hover {
   transform: translate(-2px, -6px);
-  box-shadow: 9px 9px 0 #c4899e;
-  border-color: #c9a24b;
+  box-shadow: 9px 9px 0 #96687d;
+  border-color: #937f4c;
   z-index: 2;
 }
 
@@ -21,9 +21,9 @@
   position: relative;
   aspect-ratio: 2 / 3;
   background: #0f1020;
-  border: 3px solid #eceaf5;
+  border: 3px solid #4c4f75;
   border-radius: 10px 4px 12px 5px;
-  box-shadow: 4px 4px 0 #c4899e;
+  box-shadow: 4px 4px 0 #96687d;
   margin: 9px 9px 0 9px;
   overflow: hidden;
 }
@@ -39,7 +39,7 @@
   left: 6px;
   top: 6px;
   z-index: 2;
-  background: #c9a24b;
+  background: #937f4c;
   color: #0f1020;
   border: 3px solid #0f1020;
   box-shadow: 3px 3px 0 #0f1020;
@@ -77,7 +77,7 @@
 .meta {
   display: inline-block;
   margin: 10px 0 0 2px;
-  background: rgba(201, 162, 75, 0.9);
+  background: rgba(147, 128, 76, 0.9);
   color: #0f1020;
   font-size: 0.78rem;
   font-weight: 800;
@@ -88,7 +88,7 @@
 
 .card:nth-child(even) .meta {
   transform: rotate(1.6deg);
-  background: rgba(196, 137, 158, 0.9);
+  background: rgba(150, 104, 125, 0.9);
 }
 
 @keyframes pop-in {

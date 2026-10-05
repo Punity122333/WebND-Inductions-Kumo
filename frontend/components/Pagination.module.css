@@ -9,9 +9,9 @@
 
 .btn {
   background: #181a30;
-  border: 3px solid #eceaf5;
-  box-shadow: 4px 4px 0 #0f1020, 5px 5px 0 #c4899e;
-  color: #eceaf5;
+  border: 3px solid #4c4f75;
+  box-shadow: 4px 4px 0 #0f1020, 5px 5px 0 #96687d;
+  color: #c6c2d8;
   border-radius: 10px 5px 12px 6px;
   padding: 10px 18px;
   min-height: 44px;
@@ -33,9 +33,9 @@
   min-width: 40px;
   height: 40px;
   border-radius: 8px 4px 10px 5px;
-  border: 3px solid #eceaf5;
+  border: 3px solid #4c4f75;
   background: #181a30;
-  color: #eceaf5;
+  color: #c6c2d8;
   font-weight: 800;
 }
 
@@ -48,15 +48,15 @@
 }
 
 .on {
-  background: #c9a24b;
+  background: #937f4c;
   border-color: #0f1020;
-  box-shadow: 3px 3px 0 #c4899e;
+  box-shadow: 3px 3px 0 #96687d;
   color: #0f1020;
   transform: rotate(0deg);
 }
 
 .dots {
-  color: #eceaf5;
+  color: #c6c2d8;
   padding: 0 4px;
   font-weight: 800;
 }

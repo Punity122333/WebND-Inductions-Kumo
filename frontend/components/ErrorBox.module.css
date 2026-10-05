@@ -1,8 +1,8 @@
 .box {
   background: #181a30;
-  border: 3px solid #c4899e;
+  border: 3px solid #96687d;
   border-radius: 16px 6px 18px 8px;
-  box-shadow: 6px 6px 0 #0f1020, 7px 7px 0 #c9a24b;
+  box-shadow: 6px 6px 0 #0f1020, 7px 7px 0 #937f4c;
   padding: 30px 20px;
   text-align: center;
   margin: 22px 0;
@@ -13,7 +13,7 @@
   font-family: var(--font-dela), "Zen Maru Gothic", sans-serif;
   font-size: 1.6rem;
   letter-spacing: 1px;
-  background: #c9a24b;
+  background: #937f4c;
   color: #0f1020;
   border: 3px solid #0f1020;
   border-radius: 8px 14px 6px 12px;
@@ -23,16 +23,16 @@
 }
 
 .msg {
-  color: #eceaf5;
+  color: #c6c2d8;
   margin: 0 0 18px;
   font-weight: 700;
 }
 
 .btn {
-  background: #c4899e;
+  background: #96687d;
   color: #0f1020;
   border: 3px solid #0f1020;
-  box-shadow: 4px 4px 0 #c9a24b;
+  box-shadow: 4px 4px 0 #937f4c;
   border-radius: 10px 5px 12px 6px;
   padding: 12px 26px;
   min-height: 46px;
