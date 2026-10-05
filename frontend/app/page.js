@@ -144,7 +144,7 @@ function Explorer() {
     <div className="page">
       <div className={styles.hero}>
         <h1 className={styles.title}>Find your next 3am obsession</h1>
-        <p className={styles.sub}>Search stuff, hoard favorites, pretend the backlog will shrink.</p>
+        <p className={styles.sub}>search stuff idk, dont be sus, dont cry, dont die</p>
         <div aria-hidden="true" className={styles.tear} />
       </div>
       <SearchBar value={filters.q} onChange={onSearch} />
