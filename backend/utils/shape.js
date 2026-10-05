@@ -1,25 +1,78 @@
-export function shapeListItem(raw) {
-  const imgs = raw.images || {};
-  const jpg = imgs.jpg || {};
-  const webp = imgs.webp || {};
-  const pic = jpg.image_url || webp.image_url || jpg.small_image_url || null;
-  const geners = raw.genres || [];
+export function shapeScore(avg) {
+  if (avg === null || avg === undefined) {
+    return null;
+  }
+  const n = Math.round(Number(avg)) / 10;
+  return n;
+}
+
+export function formatLabel(f) {
+  if (!f) {
+    return null;
+  }
+  if (f === "TV") {
+    return "TV";
+  }
+  if (f === "TV_SHORT") {
+    return "TV";
+  }
+  if (f === "MOVIE") {
+    return "Movie";
+  }
+  if (f === "OVA") {
+    return "OVA";
+  }
+  if (f === "ONA") {
+    return "ONA";
+  }
+  if (f === "SPECIAL") {
+    return "Special";
+  }
+  if (f === "MUSIC") {
+    return "Music";
+  }
+  return f;
+}
+
+export function statusLabel(s) {
+  if (s === "RELEASING") {
+    return "Airing";
+  }
+  if (s === "FINISHED") {
+    return "Finished";
+  }
+  if (s === "NOT_YET_RELEASED") {
+    return "Upcoming";
+  }
+  if (s === "CANCELLED") {
+    return "Cancelled";
+  }
+  if (s === "HIATUS") {
+    return "Hiatus";
+  }
+  return s || null;
+}
+
+export function shapeListItem(m) {
+  const t = m.title || {};
+  const cover = m.coverImage || {};
+  const geners = m.genres || [];
   const names = [];
   for (let i = 0; i < geners.length; i++) {
-    if (geners[i] && geners[i].name) {
-      names.push(geners[i].name);
+    if (geners[i]) {
+      names.push(geners[i]);
     }
   }
   const item = {
-    id: raw.mal_id,
-    title: raw.title,
-    titleEnglish: raw.title_english || null,
-    image: pic,
-    score: raw.score ?? null,
-    episodes: raw.episodes ?? null,
-    type: raw.type || null,
-    status: raw.status || null,
-    year: raw.year ?? null,
+    id: m.id,
+    title: t.romaji || t.english || "Unknown",
+    titleEnglish: t.english || null,
+    image: cover.large || cover.extraLarge || null,
+    score: shapeScore(m.averageScore),
+    episodes: m.episodes ?? null,
+    type: formatLabel(m.format),
+    status: statusLabel(m.status),
+    year: m.seasonYear ?? null,
     genres: names
   };
   return item;
@@ -28,133 +81,195 @@ export function shapeListItem(raw) {
 export function shapeList(arr) {
   const seen = new Set();
   const result = [];
-  for (let i = 0; i < arr.length; i++) {
+  for (let i = 0; i < (arr || []).length; i++) {
     const one = shapeListItem(arr[i]);
     if (seen.has(one.id)) {
       continue;
     }
     seen.add(one.id);
+    let blocked = false;
+    for (let j = 0; j < one.genres.length; j++) {
+      if (one.genres[j] === "Hentai") {
+        blocked = true;
+        break;
+      }
+    }
+    if (blocked) {
+      continue;
+    }
     result.push(one);
   }
   const cleaned = result;
   return cleaned;
 }
 
-export function shapePagination(jikanPag) {
-  const p = jikanPag || {};
-  const curr = p.current_page || 1;
-  const last = p.last_visible_page || 1;
-  const hasMore = p.has_next_page || false;
-  const total = p.items ? p.items.total || 0 : 0;
+export function shapePagination(pageInfo, perPage) {
+  const p = pageInfo || {};
+  const total = p.total || 0;
+  let last = p.lastPage || 0;
+  if (!last) {
+    const per = perPage || 24;
+    last = Math.ceil(total / per);
+  }
+  if (!last) {
+    last = 1;
+  }
   const out = {
-    currentPage: curr,
+    currentPage: p.currentPage || 1,
     lastPage: last,
-    hasNextPage: hasMore,
+    hasNextPage: !!p.hasNextPage,
     total: total
   };
   return out;
 }
 
-export function shapeDetail(raw) {
-  const imgs = raw.images || {};
-  const jpg = imgs.jpg || {};
-  const pic = jpg.large_image_url || jpg.image_url || null;
+const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+function dateText(d) {
+  if (!d) {
+    return "";
+  }
+  if (d.year && d.month && d.day) {
+    return months[d.month - 1] + " " + d.day + ", " + d.year;
+  }
+  if (d.year && d.month) {
+    return months[d.month - 1] + " " + d.year;
+  }
+  if (d.year) {
+    return String(d.year);
+  }
+  return "";
+}
+
+function cleanText(html) {
+  const txt = String(html || "");
+  const withBreaks = txt.replace(/<br\s*\/?>/gi, "\n");
+  const plain = withBreaks.replace(/<[^>]*>/g, "");
+  const tidy = plain.trim();
+  return tidy;
+}
+
+function capWord(s) {
+  const low = String(s || "").toLowerCase().replace(/_/g, " ");
+  if (!low) {
+    return null;
+  }
+  return low.charAt(0).toUpperCase() + low.slice(1);
+}
+
+export function shapeDetail(m) {
+  const media = m || {};
+  const t = media.title || {};
+  const cover = media.coverImage || {};
   let trailerUrl = null;
-  if (raw.trailer && raw.trailer.youtube_id) {
-    trailerUrl = "https://www.youtube.com/embed/" + raw.trailer.youtube_id;
+  if (media.trailer && media.trailer.site === "youtube" && media.trailer.id) {
+    trailerUrl = "https://www.youtube.com/embed/" + String(media.trailer.id).trim();
   }
-  const geners = raw.genres || [];
-  const genreNames = geners.map(function (g) {
-    return g.name;
-  });
-  const themeList = raw.themes || [];
-  const themeNames = [];
-  for (const t of themeList) {
-    themeNames.push(t.name);
+  let rank = null;
+  const ranks = media.rankings || [];
+  for (let i = 0; i < ranks.length; i++) {
+    if (ranks[i].type === "RATED" && ranks[i].allTime) {
+      rank = ranks[i].rank;
+      break;
+    }
   }
-  const studioList = raw.studios || [];
-  const studioNames = studioList.map(function (s) {
+  const studioNodes = (media.studios && media.studios.nodes) || [];
+  const studioNames = studioNodes.map(function (s) {
     return s.name;
   });
-  let airedText = "";
-  if (raw.aired && raw.aired.string) {
-    airedText = raw.aired.string;
+  const tagList = media.tags || [];
+  const themes = [];
+  for (let i = 0; i < tagList.length; i++) {
+    if (!tagList[i].isMediaSpoiler && themes.length < 6) {
+      themes.push(tagList[i].name);
+    }
+  }
+  const start = dateText(media.startDate);
+  const end = dateText(media.endDate);
+  let airedText = start;
+  if (start && end) {
+    airedText = start + " to " + end;
   }
   const detail = {
-    id: raw.mal_id,
-    title: raw.title,
-    titleEnglish: raw.title_english || null,
-    titleJapanese: raw.title_japanese || null,
-    image: pic,
+    id: media.id,
+    title: t.romaji || t.english || "Unknown",
+    titleEnglish: t.english || null,
+    titleJapanese: t.native || null,
+    image: cover.extraLarge || cover.large || null,
+    banner: media.bannerImage || null,
     trailerUrl: trailerUrl,
-    synopsis: raw.synopsis || null,
-    background: raw.background || null,
-    score: raw.score ?? null,
-    scoredBy: raw.scored_by ?? null,
-    rank: raw.rank ?? null,
-    popularity: raw.popularity ?? null,
-    episodes: raw.episodes ?? null,
-    duration: raw.duration || null,
-    rating: raw.rating || null,
-    season: raw.season || null,
-    year: raw.year ?? null,
-    status: raw.status || null,
-    type: raw.type || null,
-    source: raw.source || null,
+    synopsis: media.description ? cleanText(media.description) : null,
+    background: null,
+    score: shapeScore(media.averageScore),
+    scoredBy: null,
+    rank: rank,
+    popularity: media.popularity ?? null,
+    episodes: media.episodes ?? null,
+    duration: media.duration ? media.duration + " min" : null,
+    rating: null,
+    season: media.season ? capWord(media.season) : null,
+    year: media.seasonYear ?? null,
+    status: statusLabel(media.status),
+    type: formatLabel(media.format),
+    source: media.source ? capWord(media.source) : null,
     studios: studioNames,
-    genres: genreNames,
-    themes: themeNames,
+    genres: media.genres || [],
+    themes: themes,
     aired: airedText,
-    related: raw.relations || []
+    related: []
   };
   return detail;
 }
 
-export function shapeCharacters(list) {
+function roleLabel(r) {
+  if (!r) {
+    return null;
+  }
+  const low = String(r).toLowerCase();
+  return low.charAt(0).toUpperCase() + low.slice(1);
+}
+
+export function shapeCharacters(media) {
   const out = [];
-  const slice = (list || []).slice(0, 12);
+  const edges = (media && media.characters && media.characters.edges) || [];
+  const slice = edges.slice(0, 12);
   for (let i = 0; i < slice.length; i++) {
-    const c = slice[i];
-    const info = c.character || {};
-    const imgs = info.images || {};
-    const jpg = imgs.jpg || {};
+    const e = slice[i] || {};
+    const node = e.node || {};
+    const nm = node.name || {};
+    const actors = e.voiceActors || [];
     let actorName = null;
-    const actors = c.voice_actors || [];
-    for (let j = 0; j < actors.length; j++) {
-      const a = actors[j];
-      if (a.language === "Japanese") {
-        actorName = a.person ? a.person.name : null;
-        break;
-      }
-    }
-    if (!actorName && actors.length > 0 && actors[0].person) {
-      actorName = actors[0].person.name;
+    if (actors.length > 0 && actors[0].name) {
+      actorName = actors[0].name.full || null;
     }
     out.push({
-      name: info.name || "Unknown",
-      role: c.role || null,
-      image: jpg.image_url || null,
+      name: nm.full || "Unknown",
+      role: roleLabel(e.role),
+      image: (node.image && node.image.medium) || null,
       voiceActor: actorName
     });
   }
   return out;
 }
 
-export function shapeRecommendations(list) {
+export function shapeRecommendations(media) {
   const out = [];
-  const slice = (list || []).slice(0, 8);
-  for (const r of slice) {
-    const e = r.entry || {};
-    const imgs = e.images || {};
-    const jpg = imgs.jpg || {};
+  const nodes = (media && media.recommendations && media.recommendations.nodes) || [];
+  for (let i = 0; i < nodes.length && out.length < 8; i++) {
+    const rec = nodes[i] ? nodes[i].mediaRecommendation : null;
+    if (!rec) {
+      continue;
+    }
+    const t = rec.title || {};
+    const cover = rec.coverImage || {};
     out.push({
-      id: e.mal_id,
-      title: e.title,
-      image: jpg.image_url || null
+      id: rec.id,
+      title: t.romaji || t.english || "Unknown",
+      image: cover.large || null
     });
   }
-  const filtered = out.filter(function (x) {
+  const result = out.filter(function (x) {
     return x.id;
   });
-  return filtered;
+  return result;
 }

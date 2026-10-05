@@ -5,7 +5,7 @@ export default function errorHandler(err, req, res, next) {
     msg = err.message || "Anime not found";
   }
   if (code === 429) {
-    msg = "Too many requests, try again in a moment";
+    msg = "Too many requests, wait a minute and try again";
   }
   if (code === 502) {
     msg = "Upstream service failed, try again later";
@@ -44,7 +44,7 @@ export function toHttpError(e) {
   }
   if (s === 429) {
     err.statusCode = 429;
-    err.message = "Too many requests, try again in a moment";
+    err.message = "Too many requests, wait a minute and try again";
     return err;
   }
   err.statusCode = s >= 500 ? 502 : s;

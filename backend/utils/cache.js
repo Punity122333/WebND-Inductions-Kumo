@@ -1,6 +1,6 @@
 import NodeCache from "node-cache";
 
-const defaultTtl = Number(process.env.CACHE_TTL_SECONDS) || 300;
+const defaultTtl = Number(process.env.CACHE_TTL_SECONDS) || 600;
 const store = new NodeCache({ stdTTL: defaultTtl, checkperiod: 60 });
 
 export function getCache(cachKey) {

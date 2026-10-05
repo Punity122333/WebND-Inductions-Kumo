@@ -1,5 +1,5 @@
 import express from "express";
-import { jikanGet, fetchAnimeList, fetchTopAnime, fetchGenres, fetchAnimeById, fetchAnimeCharacters, fetchAnimeRecs } from "../services/jikan.js";
+import { fetchAnimePage, fetchTopPage, fetchGenreList, fetchDetail } from "../services/anilist.js";
 import { getCache, setCache, makeKey } from "../utils/cache.js";
 import { shapeList, shapePagination, shapeDetail, shapeCharacters, shapeRecommendations } from "../utils/shape.js";
 import { toHttpError } from "../middleware/errorHandler.js";
@@ -9,6 +9,9 @@ const router = express.Router();
 const allowedOrder = ["popularity", "score", "start_date", "title"];
 const allowedTypes = ["tv", "movie", "ova", "special", "ona"];
 const allowedStatus = ["airing", "complete", "upcoming"];
+
+const formatMap = { tv: "TV", movie: "MOVIE", ova: "OVA", special: "SPECIAL", ona: "ONA" };
+const statusMap = { airing: "RELEASING", complete: "FINISHED", upcoming: "NOT_YET_RELEASED" };
 
 function parseSearch(q) {
   const out = {};
@@ -49,6 +52,29 @@ function checkSearch(p) {
   return null;
 }
 
+function buildSort(orderBy, sortDir, hasQ) {
+  const dir = sortDir === "asc" ? "asc" : "desc";
+  if (!orderBy) {
+    if (hasQ) {
+      return ["SEARCH_MATCH"];
+    }
+    return undefined;
+  }
+  if (orderBy === "popularity") {
+    return [dir === "desc" ? "POPULARITY_DESC" : "POPULARITY"];
+  }
+  if (orderBy === "score") {
+    return [dir === "desc" ? "SCORE_DESC" : "SCORE"];
+  }
+  if (orderBy === "start_date") {
+    return [dir === "desc" ? "START_DATE_DESC" : "START_DATE"];
+  }
+  if (orderBy === "title") {
+    return [dir === "desc" ? "TITLE_ROMAJI_DESC" : "TITLE_ROMAJI"];
+  }
+  return undefined;
+}
+
 router.get("/search", async function (req, res, next) {
   try {
     const p = parseSearch(req.query);
@@ -63,22 +89,32 @@ router.get("/search", async function (req, res, next) {
     if (cached) {
       return res.json(cached);
     }
-    const params = {
+    const vars = {
       page: p.page,
-      limit: p.limit,
-      sfw: true
+      perPage: p.limit
     };
-    if (p.q) params.q = p.q;
-    if (p.genre) params.genres = p.genre;
-    if (p.type) params.type = p.type;
-    if (p.status) params.status = p.status;
-    if (p.minScore !== "") params.min_score = p.minScore;
-    if (p.orderBy) params.order_by = p.orderBy;
-    if (p.sort) params.sort = p.sort;
-    const raw = await fetchAnimeList(params);
-    const list = raw.data || [];
-    const items = shapeList(list);
-    const pagination = shapePagination(raw.pagination);
+    if (p.q) {
+      vars.search = p.q;
+    }
+    if (p.genre) {
+      vars.genre = p.genre;
+    }
+    if (p.type && formatMap[p.type]) {
+      vars.format = formatMap[p.type];
+    }
+    if (p.status && statusMap[p.status]) {
+      vars.status = statusMap[p.status];
+    }
+    if (p.minScore !== "") {
+      vars.minScore = Math.round(Number(p.minScore) * 10);
+    }
+    const sort = buildSort(p.orderBy, p.sort, !!p.q);
+    if (sort) {
+      vars.sort = sort;
+    }
+    const pageData = await fetchAnimePage(vars);
+    const items = shapeList(pageData.media || []);
+    const pagination = shapePagination(pageData.pageInfo || {}, p.limit);
     const payload = { items: items, pagination: pagination };
     setCache(cachKey, payload);
     res.json(payload);
@@ -104,9 +140,9 @@ router.get("/top", async function (req, res, next) {
     if (hit) {
       return res.json(hit);
     }
-    const raw = await fetchTopAnime(currenPage);
-    const items = shapeList(raw.data || []);
-    const pagination = shapePagination(raw.pagination);
+    const pageData = await fetchTopPage(currenPage, 24);
+    const items = shapeList(pageData.media || []);
+    const pagination = shapePagination(pageData.pageInfo || {}, 24);
     const body = { items: items, pagination: pagination };
     setCache(cachKey, body);
     res.json(body);
@@ -122,15 +158,16 @@ router.get("/genres", async function (req, res, next) {
     if (hit) {
       return res.json(hit);
     }
-    const raw = await fetchGenres();
-    const arr = raw.data || [];
-    const mapped = arr.map(function (g) {
-      return { id: g.mal_id, name: g.name, count: g.count || 0 };
-    });
-    mapped.sort(function (a, b) {
-      if (a.name < b.name) return -1;
-      if (a.name > b.name) return 1;
-      return 0;
+    const list = await fetchGenreList();
+    const kept = [];
+    for (let i = 0; i < list.length; i++) {
+      if (list[i] && list[i] !== "Hentai") {
+        kept.push(list[i]);
+      }
+    }
+    kept.sort();
+    const mapped = kept.map(function (name) {
+      return { id: name, name: name };
     });
     setCache("genres-all", mapped, 86400);
     res.json(mapped);
@@ -140,17 +177,26 @@ router.get("/genres", async function (req, res, next) {
   }
 });
 
+async function loadDetail(id) {
+  const cachKey = "detail-" + id;
+  const hit = getCache(cachKey);
+  if (hit) {
+    return hit;
+  }
+  const media = await fetchDetail(id);
+  if (!media) {
+    const e = new Error("Anime not found");
+    e.statusCode = 404;
+    throw e;
+  }
+  setCache(cachKey, media);
+  return media;
+}
+
 router.get("/:id/characters", async function (req, res, next) {
   try {
-    const id = req.params.id;
-    const cachKey = "chars-" + id;
-    const hit = getCache(cachKey);
-    if (hit) {
-      return res.json(hit);
-    }
-    const raw = await fetchAnimeCharacters(id);
-    const shaped = shapeCharacters(raw.data || []);
-    setCache(cachKey, shaped);
+    const media = await loadDetail(req.params.id);
+    const shaped = shapeCharacters(media);
     res.json(shaped);
   } catch (e) {
     console.error(e.message);
@@ -160,15 +206,8 @@ router.get("/:id/characters", async function (req, res, next) {
 
 router.get("/:id/recommendations", async function (req, res, next) {
   try {
-    const id = req.params.id;
-    const cachKey = "recs-" + id;
-    const hit = getCache(cachKey);
-    if (hit) {
-      return res.json(hit);
-    }
-    const raw = await fetchAnimeRecs(id);
-    const shaped = shapeRecommendations(raw.data || []);
-    setCache(cachKey, shaped);
+    const media = await loadDetail(req.params.id);
+    const shaped = shapeRecommendations(media);
     res.json(shaped);
   } catch (e) {
     console.error(e.message);
@@ -178,15 +217,8 @@ router.get("/:id/recommendations", async function (req, res, next) {
 
 router.get("/:id", async function (req, res, next) {
   try {
-    const id = req.params.id;
-    const cachKey = "detail-" + id;
-    const hit = getCache(cachKey);
-    if (hit) {
-      return res.json(hit);
-    }
-    const raw = await fetchAnimeById(id);
-    const detail = shapeDetail(raw.data || {});
-    setCache(cachKey, detail);
+    const media = await loadDetail(req.params.id);
+    const detail = shapeDetail(media);
     res.json(detail);
   } catch (e) {
     console.error(e.message);
