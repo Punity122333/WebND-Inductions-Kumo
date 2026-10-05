@@ -1,10 +1,10 @@
 .panel {
   position: relative;
-  background: #ffd84d;
+  background: #c9a24b;
   color: #0f1020;
   border: 3px solid #0f1020;
   border-radius: 5px 16px 7px 14px;
-  box-shadow: 6px 6px 0 #ff8fb1;
+  box-shadow: 6px 6px 0 #c4899e;
   padding: 22px 16px 16px;
   margin-top: 14px;
 }
@@ -69,7 +69,7 @@
 }
 
 .toggle {
-  background: #ff8fb1;
+  background: #c4899e;
   color: #0f1020;
   flex: 1;
   box-shadow: 3px 3px 0 #0f1020;
@@ -86,7 +86,7 @@
   display: none;
   width: 100%;
   background: #0f1020;
-  color: #ffd84d;
+  color: #c9a24b;
   margin-bottom: 12px;
 }
 

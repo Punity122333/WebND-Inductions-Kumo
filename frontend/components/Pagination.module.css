@@ -10,7 +10,7 @@
 .btn {
   background: #181a30;
   border: 3px solid #eceaf5;
-  box-shadow: 4px 4px 0 #0f1020, 5px 5px 0 #ff8fb1;
+  box-shadow: 4px 4px 0 #0f1020, 5px 5px 0 #c4899e;
   color: #eceaf5;
   border-radius: 10px 5px 12px 6px;
   padding: 10px 18px;
@@ -48,9 +48,9 @@
 }
 
 .on {
-  background: #ffd84d;
+  background: #c9a24b;
   border-color: #0f1020;
-  box-shadow: 3px 3px 0 #ff8fb1;
+  box-shadow: 3px 3px 0 #c4899e;
   color: #0f1020;
   transform: rotate(0deg);
 }

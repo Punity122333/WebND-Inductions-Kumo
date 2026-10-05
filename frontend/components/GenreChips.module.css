@@ -23,17 +23,17 @@
 }
 
 .row .chip:nth-child(even) {
-  border-color: #ff8fb1;
+  border-color: #c4899e;
 }
 
 .chip:hover {
-  border-color: #ffd84d;
+  border-color: #c9a24b;
 }
 
 .on {
-  background: #ff8fb1;
+  background: #c4899e;
   border: 3px solid #0f1020;
-  box-shadow: 3px 3px 0 #ffd84d;
+  box-shadow: 3px 3px 0 #c9a24b;
   color: #0f1020;
   transform: rotate(0deg);
 }

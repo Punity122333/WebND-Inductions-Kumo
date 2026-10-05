@@ -8,7 +8,7 @@ export default function AppError({ error, reset }) {
       <p className="muted">{msg}</p>
       <button
         onClick={function () { reset(); }}
-        style={{ background: "#ff8fb1", border: "none", borderRadius: 12, padding: "10px 20px", fontWeight: 800 }}
+        style={{ background: "#c4899e", border: "none", borderRadius: 12, padding: "10px 20px", fontWeight: 800 }}
       >
         Try again
       </button>

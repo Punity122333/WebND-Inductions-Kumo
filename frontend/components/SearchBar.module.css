@@ -13,18 +13,18 @@
   background: #181a30;
   border: 3px solid #eceaf5;
   border-radius: 14px 5px 16px 6px;
-  box-shadow: 5px 5px 0 #0f1020, 6px 6px 0 #ff8fb1;
+  box-shadow: 5px 5px 0 #0f1020, 6px 6px 0 #c4899e;
   padding: 0 12px;
   height: 52px;
 }
 
 .wrap:focus-within {
-  border-color: #ffd84d;
-  box-shadow: 5px 5px 0 #0f1020, 6px 6px 0 #ffd84d;
+  border-color: #c9a24b;
+  box-shadow: 5px 5px 0 #0f1020, 6px 6px 0 #c9a24b;
 }
 
 .icon {
-  color: #ffd84d;
+  color: #c9a24b;
   flex-shrink: 0;
 }
 
@@ -50,7 +50,7 @@
 }
 
 .clear {
-  background: #ff8fb1;
+  background: #c4899e;
   color: #0f1020;
   border: 3px solid #0f1020;
   border-radius: 8px 4px 9px 5px;
@@ -69,10 +69,10 @@
   font-family: var(--font-dela), "Zen Maru Gothic", sans-serif;
   font-size: 1.05rem;
   letter-spacing: 1px;
-  background: #ffd84d;
+  background: #c9a24b;
   color: #0f1020;
   border: 3px solid #0f1020;
   border-radius: 6px 14px 5px 12px;
-  box-shadow: 5px 5px 0 #ff8fb1;
+  box-shadow: 5px 5px 0 #c4899e;
   transform: rotate(1.2deg);
 }

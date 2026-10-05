@@ -7,19 +7,19 @@
   background: #eceaf5;
   border: 3px solid #0f1020;
   border-radius: 8px 4px 10px 5px;
-  box-shadow: 4px 4px 0 #ff8fb1;
+  box-shadow: 4px 4px 0 #c4899e;
   font-weight: 800;
 }
 
 .back:hover {
-  background: #ffd84d;
+  background: #c9a24b;
 }
 
 .text {
   background: #181a30;
   border: 3px solid #eceaf5;
   border-radius: 14px 6px 16px 8px;
-  box-shadow: 6px 6px 0 #0f1020, 7px 7px 0 #ff8fb1;
+  box-shadow: 6px 6px 0 #0f1020, 7px 7px 0 #c4899e;
   padding: 22px;
   margin-top: 22px;
 }
@@ -30,7 +30,7 @@
   font-size: 1.2rem;
   margin: 16px 0 4px;
   padding-bottom: 8px;
-  background-image: repeating-linear-gradient(135deg, #ffd84d 0 8px, transparent 8px 14px);
+  background-image: repeating-linear-gradient(135deg, #c9a24b 0 8px, transparent 8px 14px);
   background-size: 100% 6px;
   background-position: 0 100%;
   background-repeat: no-repeat;

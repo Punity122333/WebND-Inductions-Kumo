@@ -17,16 +17,16 @@
 
 .footer > span:first-child {
   font-family: var(--font-dela), "Zen Maru Gothic", sans-serif;
-  background: #ff8fb1;
+  background: #c4899e;
   color: #0f1020;
   border: 3px solid #0f1020;
-  box-shadow: 3px 3px 0 #ffd84d;
+  box-shadow: 3px 3px 0 #c9a24b;
   border-radius: 8px 4px 10px 5px;
   padding: 2px 12px 4px;
 }
 
 .dot {
-  color: #ffd84d;
+  color: #c9a24b;
 }
 
 .muted {

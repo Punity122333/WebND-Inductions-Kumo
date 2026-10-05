@@ -23,10 +23,10 @@
   font-size: 1.5rem;
   font-weight: 700;
   transform: rotate(-3deg) translateY(5px);
-  background: #ffd84d;
+  background: #c9a24b;
   color: #0f1020;
   border: 3px solid #0f1020;
-  box-shadow: 4px 4px 0 #ff8fb1;
+  box-shadow: 4px 4px 0 #c4899e;
   border-radius: 10px 4px 12px 5px;
   padding: 4px 12px 4px 6px;
   min-height: 44px;
@@ -40,7 +40,7 @@
   height: 36px;
   border-radius: 8px 12px 6px 10px;
   background: #0f1020;
-  color: #ffd84d;
+  color: #c9a24b;
   font-size: 1.25rem;
 }
 
@@ -73,9 +73,9 @@
 
 .active {
   color: #0f1020;
-  background: #ffd84d;
+  background: #c9a24b;
   border: 3px solid #0f1020;
-  box-shadow: 3px 3px 0 #ff8fb1;
+  box-shadow: 3px 3px 0 #c4899e;
 }
 
 .badge {
@@ -84,7 +84,7 @@
   padding: 0 7px;
   border-radius: 8px 4px 9px 5px;
   background: #0f1020;
-  color: #ffd84d;
+  color: #c9a24b;
   border: 2px solid #0f1020;
   font-size: 0.8rem;
   display: inline-flex;
@@ -95,13 +95,13 @@
 }
 
 .link:not(.active) .badge {
-  background: #ff8fb1;
+  background: #c4899e;
   color: #0f1020;
   border-color: #eceaf5;
 }
 
 .ticker {
-  background: #ff8fb1;
+  background: #c4899e;
   color: #0f1020;
   border-top: 3px solid #0f1020;
   overflow: hidden;

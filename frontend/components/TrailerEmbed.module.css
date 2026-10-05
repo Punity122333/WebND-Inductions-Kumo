@@ -9,7 +9,7 @@
   margin: 0 0 14px -4px;
   padding-bottom: 8px;
   transform: rotate(-0.8deg);
-  background-image: repeating-linear-gradient(135deg, #ff8fb1 0 8px, transparent 8px 14px);
+  background-image: repeating-linear-gradient(135deg, #c4899e 0 8px, transparent 8px 14px);
   background-size: 100% 6px;
   background-position: 0 100%;
   background-repeat: no-repeat;
@@ -21,7 +21,7 @@
   border-radius: 10px 5px 14px 6px;
   overflow: hidden;
   border: 3px solid #eceaf5;
-  box-shadow: 6px 6px 0 #ffd84d;
+  box-shadow: 6px 6px 0 #c9a24b;
   background: #000;
 }
 

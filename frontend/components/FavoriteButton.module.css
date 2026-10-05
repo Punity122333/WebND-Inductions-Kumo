@@ -12,11 +12,11 @@
 }
 
 .btn:hover {
-  background: #ff8fb1;
+  background: #c4899e;
 }
 
 .fav {
-  background: #ff8fb1;
+  background: #c4899e;
   border-color: #0f1020;
   color: #0f1020;
   animation: pop 0.22s steps(3) both;
