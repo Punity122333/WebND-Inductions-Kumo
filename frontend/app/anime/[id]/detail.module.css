@@ -1,0 +1,43 @@
+.back {
+  display: inline-block;
+  margin: 6px 0 16px;
+  color: #9a98b5;
+  font-weight: 800;
+}
+
+.back:hover {
+  color: #ff8fb1;
+}
+
+.text {
+  background: #181a30;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.text h2 {
+  font-size: 1.2rem;
+  margin: 14px 0 8px;
+}
+
+.text h2:first-child {
+  margin-top: 0;
+}
+
+.text p {
+  line-height: 1.6;
+  margin: 0;
+  white-space: pre-line;
+}
+
+.muted {
+  color: #9a98b5;
+}
+
+.meta {
+  color: #9a98b5;
+  margin-top: 14px !important;
+  font-size: 0.9rem;
+}

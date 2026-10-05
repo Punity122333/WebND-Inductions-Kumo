@@ -1,0 +1,23 @@
+.btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(15, 16, 32, 0.7);
+  color: #eceaf5;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.btn:hover {
+  border-color: #ff8fb1;
+  color: #ff8fb1;
+}
+
+.fav {
+  background: #ff8fb1;
+  border-color: #ff8fb1;
+  color: #0f1020;
+}

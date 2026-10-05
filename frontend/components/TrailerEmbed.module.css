@@ -1,0 +1,23 @@
+.box {
+  margin-top: 26px;
+}
+
+.h {
+  font-size: 1.3rem;
+  margin-bottom: 12px;
+}
+
+.frame {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #000;
+}
+
+.frame iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
