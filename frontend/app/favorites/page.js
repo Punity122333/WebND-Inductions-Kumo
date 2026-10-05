@@ -11,8 +11,11 @@ export default function FavoritesPage() {
 
   if (!ctx || !ctx.loaded) {
     return (
-      <div className="page">
-        <h1 className={styles.title}>Favorites</h1>
+    <div className="page">
+      <h1 className={styles.title}>
+        Favorites
+        <span aria-hidden="true" className="sfx">キラ</span>
+      </h1>
         <SkeletonGrid count={6} />
       </div>
     );

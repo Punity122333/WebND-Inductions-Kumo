@@ -1,8 +1,20 @@
 .title {
+  display: inline-block;
+  font-family: var(--font-dela), "Zen Maru Gothic", sans-serif;
   font-size: 2rem;
+  letter-spacing: 1px;
+  background: #ffd84d;
+  color: #0f1020;
+  border: 3px solid #0f1020;
+  box-shadow: 5px 5px 0 #ff8fb1;
+  border-radius: 12px 5px 14px 6px;
+  padding: 6px 20px 8px;
+  transform: rotate(1deg);
+  text-shadow: none;
 }
 
 .sub {
-  color: #9a98b5;
-  margin: 6px 0 18px;
+  color: rgba(236, 234, 245, 0.72);
+  font-weight: 700;
+  margin: 14px 0 20px 2px;
 }

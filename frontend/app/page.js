@@ -145,6 +145,7 @@ function Explorer() {
       <div className={styles.hero}>
         <h1 className={styles.title}>Find your next favorite anime</h1>
         <p className={styles.sub}>Search, filter and bookmark titles from AniList.</p>
+        <div aria-hidden="true" className={styles.tear} />
       </div>
       <SearchBar value={filters.q} onChange={onSearch} />
       <div className={styles.chips}>
@@ -155,7 +156,10 @@ function Explorer() {
           <FilterPanel filters={filters} genres={genres} onUpdate={onFilterUpdate} onReset={onReset} />
         </aside>
         <section className={styles.results}>
-          <h2 className="sectionTitle">{heading}</h2>
+          <h2 className="sectionTitle">
+            {heading}
+            <span aria-hidden="true" className="sfx">ドン</span>
+          </h2>
           {loading ? (
             <SkeletonGrid count={12} />
           ) : err ? (
