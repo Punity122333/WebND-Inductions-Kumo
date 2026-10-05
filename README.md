@@ -1,3 +1,5 @@
-Kumo - weeb ahh anime browser app lmao
+# Kumo - weeb ahh anime browser app lmao
 
-Note the backend might take some time to spin up (~50 sec) as it is being deployed on Render's free tier lmao
+> The backend might take ~50 seconds to spin up because it's deployed on Render's free tier lmao.
+
+(yes the name is ai generated pls spare me i am good person ;-;)
