@@ -39,12 +39,12 @@
   z-index: 1;
   min-width: 0;
 }
-
 .title {
   font-family: var(--font-dela), "Zen Maru Gothic", sans-serif;
-  font-size: 2rem;
+  font-size: clamp(1.4rem, 3vw, 2rem);
   line-height: 1.2;
   text-shadow: 3px 3px 0 #96687d;
+  overflow-wrap: anywhere;
 }
 
 .sub {
@@ -141,12 +141,6 @@
   font-weight: 700;
 }
 
-@media (min-width: 721px) {
-  .title {
-    margin-left: -58px;
-    padding-left: 8px;
-  }
-}
 
 @media (max-width: 720px) {
   .hero {
