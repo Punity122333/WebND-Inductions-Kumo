@@ -1,29 +1,41 @@
 .row {
   display: flex;
-  gap: 10px;
+  gap: 12px;
   overflow-x: auto;
-  padding: 6px 2px 12px;
+  padding: 10px 2px 16px;
   scrollbar-width: thin;
 }
 
 .chip {
   flex-shrink: 0;
-  border-radius: 999px;
-  padding: 8px 16px;
+  min-height: 42px;
+  border-radius: 10px 4px 12px 5px;
+  padding: 8px 18px;
   background: #181a30;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: #9a98b5;
+  border: 3px solid #eceaf5;
+  color: #eceaf5;
   font-weight: 800;
-  transition: all 0.2s ease;
+  transition: transform 0.15s steps(3);
+}
+
+.row .chip:nth-child(odd) {
+  transform: rotate(-1.4deg);
+}
+
+.row .chip:nth-child(even) {
+  transform: rotate(1.1deg);
+  border-color: #ff8fb1;
 }
 
 .chip:hover {
-  color: #eceaf5;
-  border-color: rgba(255, 143, 177, 0.5);
+  transform: rotate(0deg);
+  border-color: #ffd84d;
 }
 
 .on {
-  background: rgba(255, 143, 177, 0.2);
-  border-color: #ff8fb1;
-  color: #eceaf5;
+  background: #ff8fb1;
+  border: 3px solid #0f1020;
+  box-shadow: 3px 3px 0 #ffd84d;
+  color: #0f1020;
+  transform: rotate(0deg);
 }

@@ -1,42 +1,70 @@
+.row {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
 .wrap {
   position: relative;
   display: flex;
   align-items: center;
+  flex: 1;
+  min-width: 0;
   background: #181a30;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 18px;
-  padding: 0 14px;
+  border: 3px solid #eceaf5;
+  border-radius: 14px 5px 16px 6px;
+  box-shadow: 5px 5px 0 #0f1020, 6px 6px 0 #ff8fb1;
+  padding: 0 12px;
   height: 52px;
+  transform: rotate(-0.4deg);
 }
 
 .icon {
-  color: #9a98b5;
+  color: #ffd84d;
   flex-shrink: 0;
 }
 
 .input {
   flex: 1;
+  min-width: 0;
   background: transparent;
   border: none;
   outline: none;
   color: #eceaf5;
   font-size: 1rem;
+  font-weight: 700;
   padding: 0 10px;
   height: 100%;
 }
 
 .input::placeholder {
-  color: #9a98b5;
+  color: rgba(236, 234, 245, 0.55);
 }
 
 .clear {
-  background: rgba(255, 255, 255, 0.08);
-  border: none;
-  border-radius: 999px;
-  width: 28px;
-  height: 28px;
+  background: #ff8fb1;
+  color: #0f1020;
+  border: 3px solid #0f1020;
+  border-radius: 8px 4px 9px 5px;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #eceaf5;
+}
+
+.go {
+  flex-shrink: 0;
+  height: 58px;
+  padding: 0 22px;
+  font-family: var(--font-dela), "Zen Maru Gothic", sans-serif;
+  font-size: 1.05rem;
+  letter-spacing: 1px;
+  background: #ffd84d;
+  color: #0f1020;
+  border: 3px solid #0f1020;
+  border-radius: 6px 14px 5px 12px;
+  box-shadow: 5px 5px 0 #ff8fb1;
+  transform: rotate(1.2deg);
 }

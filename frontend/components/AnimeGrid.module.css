@@ -1,7 +1,12 @@
 .grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
+  column-gap: 15px;
+  row-gap: 21px;
+}
+
+.grid > *:first-child {
+  margin-top: 5px;
 }
 
 @media (min-width: 640px) {
@@ -13,6 +18,7 @@
 @media (min-width: 900px) {
   .grid {
     grid-template-columns: repeat(4, 1fr);
+    column-gap: 17px;
   }
 }
 
