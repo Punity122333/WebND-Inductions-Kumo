@@ -2,9 +2,19 @@
 
 import styles from "./Pagination.module.css";
 
-export default function Pagination({ page, lastPage, onChange }) {
+export default function Pagination({ page, lastPage, hasNextPage, onChange }) {
   const pageNum = Number(page) || 1;
   const total = Number(lastPage) || 1;
+
+  function canNext() {
+    if (hasNextPage === true) {
+      return true;
+    }
+    if (hasNextPage === false) {
+      return false;
+    }
+    return pageNum < total;
+  }
 
   function go(p) {
     if (p < 1 || p > total || p === pageNum) {
@@ -61,7 +71,7 @@ export default function Pagination({ page, lastPage, onChange }) {
           );
         })}
       </div>
-      <button className={styles.btn} disabled={pageNum >= total} onClick={function () { go(pageNum + 1); }} aria-label="Next page">
+      <button className={styles.btn} disabled={!canNext()} onClick={function () { go(pageNum + 1); }} aria-label="Next page">
         {"Next >"}
       </button>
     </div>

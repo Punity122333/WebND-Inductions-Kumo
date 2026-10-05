@@ -144,7 +144,7 @@ function Explorer() {
     <div className="page">
       <div className={styles.hero}>
         <h1 className={styles.title}>Find your next favorite anime</h1>
-        <p className={styles.sub}>Search, filter and bookmark titles from MyAnimeList.</p>
+        <p className={styles.sub}>Search, filter and bookmark titles from AniList.</p>
       </div>
       <SearchBar value={filters.q} onChange={onSearch} />
       <div className={styles.chips}>
@@ -165,7 +165,7 @@ function Explorer() {
           ) : (
             <>
               <AnimeGrid items={items} />
-              <Pagination page={pag.currentPage} lastPage={pag.lastPage} onChange={onPage} />
+              <Pagination page={pag.currentPage} lastPage={pag.lastPage} hasNextPage={pag.hasNextPage} onChange={onPage} />
             </>
           )}
         </section>

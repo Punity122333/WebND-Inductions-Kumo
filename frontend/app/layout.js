@@ -22,7 +22,7 @@ export default function RootLayout({ children }) {
           <footer className={styles.footer}>
             <span>Kumo</span>
             <span className={styles.dot}>{" · "}</span>
-            <span className={styles.muted}>Data by Jikan and MyAnimeList</span>
+            <span className={styles.muted}>Data from AniList</span>
           </footer>
         </FavoritesProvider>
       </body>
