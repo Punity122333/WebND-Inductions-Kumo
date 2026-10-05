@@ -143,8 +143,8 @@ function Explorer() {
   return (
     <div className="page">
       <div className={styles.hero}>
-        <h1 className={styles.title}>Find your next favorite anime</h1>
-        <p className={styles.sub}>Search, filter and bookmark titles from AniList.</p>
+        <h1 className={styles.title}>Find your next 3am obsession</h1>
+        <p className={styles.sub}>Search stuff, hoard favorites, pretend the backlog will shrink.</p>
         <div aria-hidden="true" className={styles.tear} />
       </div>
       <SearchBar value={filters.q} onChange={onSearch} />
