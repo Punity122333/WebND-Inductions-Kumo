@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: kumo-backend
+    runtime: node
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_VERSION
+        value: 22.14.0
+      - key: ANILIST_URL
+        value: https://graphql.anilist.co
+      - key: CACHE_TTL_SECONDS
+        value: 600
+      - key: FRONTEND_ORIGIN
+        sync: false
